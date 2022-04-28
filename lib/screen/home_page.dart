@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mockup_pet_adoption/components/page_header.dart' as header;
+import '../components/page_header.dart' as header;
+import '../components/filter.dart';
+import '../components/settings_filter.dart';
+import '../components/animal_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,15 +30,22 @@ class _HomeState extends State<HomePage> {
             // CORPO ONDE VÃO OS LIST VIEWS
             Expanded(
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 242, 242, 242),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                ),
-                // child: _listTypeAnimal(),
-              ),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 242, 242, 242),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                  ),
+
+                  //
+                  child: Column(
+                    children: [
+                      SettingsFilter(),
+                      Filters(),
+                      AnimalCard(),
+                    ],
+                  )),
             )
           ],
         ),
@@ -47,11 +57,10 @@ class _HomeState extends State<HomePage> {
 // Widget _listTypeAnimal(){
 //   return ListView.builder(
 //     itemBuilder: (BuildContext (context, index) {
-      
+
 //     }));
 // }
 
 // class _listTypeAnimal() extends ListTile
 // {
-
 // }
