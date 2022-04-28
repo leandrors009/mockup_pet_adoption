@@ -38,7 +38,7 @@ class AnimalCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Padding(
                       padding: const EdgeInsets.only(bottom: 5),
@@ -83,6 +83,7 @@ class AnimalCard extends StatelessWidget {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const Image(
                     image: AssetImage('assets/icons/heartfill.png'),

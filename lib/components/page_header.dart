@@ -42,7 +42,7 @@ class PageHeader extends StatelessWidget {
                             fontWeight: FontWeight.w800,
                             fontSize: 16,
                             color: Colors.black87.withOpacity(0.78)),
-                      )
+                      ),
                     ],
                   )
                 ],
