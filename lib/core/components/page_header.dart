@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
 class PageHeader extends StatelessWidget {
+  final double height;
+  final double width;
+
+  const PageHeader({
+    super.key,
+    this.height = 210,
+    this.width = 750,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, bottom: 40, left: 20, right: 20),
+      padding: EdgeInsets.only(
+          top: height * .08,
+          bottom: height * .08,
+          left: height * .06,
+          right: height * .06),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -12,8 +25,8 @@ class PageHeader extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
-                width: 40,
-                height: 40,
+                width: height * .07,
+                height: height * .07,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fill,
@@ -22,15 +35,19 @@ class PageHeader extends StatelessWidget {
 
           // LOCATION
           Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(height * .05),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         'Location',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: height * .032,
+                        ),
+                        overflow: TextOverflow.fade,
                       )
                     ],
                   ),
@@ -39,9 +56,11 @@ class PageHeader extends StatelessWidget {
                       Text(
                         'Cameron St., Boston',
                         style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 16,
-                            color: Colors.black87.withOpacity(0.78)),
+                          fontWeight: FontWeight.w800,
+                          fontSize: height * .042,
+                          color: Colors.black87.withOpacity(0.78),
+                        ),
+                        overflow: TextOverflow.fade,
                       ),
                     ],
                   )
@@ -52,8 +71,8 @@ class PageHeader extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
-                width: 50,
-                height: 50,
+                width: height * .12,
+                height: height * .12,
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
