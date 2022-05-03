@@ -18,8 +18,8 @@ class SettingsFilter extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(height * .4))),
-        width: width,
-        height: height,
+        width: width * .12,
+        height: height * .12,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           const Image(
             image: AssetImage('assets/icons/settings.png'),

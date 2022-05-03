@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
-enum animal { dog, cat, bird }
+enum filter { dog, cat, bird, settings }
 
-class Filter extends StatelessWidget {
-  final double height;
-  final double width;
+class FilterPet extends StatelessWidget {
+  double height;
+  double width;
 
   final bool selected;
-  final animal typeAnimal;
+  final filter typeFilter;
+  final String filterName;
 
-  const Filter({
+  FilterPet({
     this.height = 90,
     this.width = 175,
     this.selected = false,
-    required this.typeAnimal,
+    required this.typeFilter,
+    this.filterName = '',
   });
 
   @override
@@ -21,18 +23,23 @@ class Filter extends StatelessWidget {
     late String imageAsset;
     late String description;
 
-    switch (typeAnimal) {
-      case animal.dog:
+    switch (typeFilter) {
+      case filter.dog:
         imageAsset = 'assets/icons/dog.png';
         description = 'Dogs';
         break;
-      case animal.cat:
+      case filter.cat:
         imageAsset = 'assets/icons/cat.png';
         description = 'Cats';
         break;
-      case animal.bird:
+      case filter.bird:
         imageAsset = 'assets/icons/bird.png';
         description = 'Birds';
+        break;
+      case filter.settings:
+        imageAsset = 'assets/icons/settings.png';
+        // height: size.width * .12,
+        // width: size.width * .12,
         break;
       default:
         imageAsset = 'assets/icons/heartgrey.png';
@@ -51,12 +58,12 @@ class Filter extends StatelessWidget {
           Image(
             image: AssetImage(imageAsset),
             width: height * .5,
-            height: height * .5,
+            height: height * 2,
           ),
           Text(
             description,
             style: TextStyle(color: selected ? Colors.white : Colors.black),
-          )
+          ),
         ]),
       ),
     );
