@@ -60,13 +60,14 @@ class _HomeState extends State<HomePage> {
                           left: size.height * .02,
                           right: size.height * .02,
                         ),
+
+                        // ----- COMPONENTE S DE FILTRO ------
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: filterPetList.length + 1,
                           itemBuilder: (context, index) {
                             var item;
                             if (index == 0) {
-                              item = filterPetList[index];
                               return SettingsFilter(
                                 width: size.width,
                                 height: size.height,
@@ -85,40 +86,6 @@ class _HomeState extends State<HomePage> {
                         ),
                       ),
                     ),
-
-                    // ----- COMPONENTE S DE FILTRO ------
-
-                    // SingleChildScrollView(
-                    //   scrollDirection: Axis.horizontal,
-                    //   child: Padding(
-                    //     padding: EdgeInsets.only(
-                    //         top: size.height * .02, left: size.height * .02),
-                    //     child: Row(
-                    //       children: [
-                    //         SettingsFilter(
-                    //           height: size.width * .12,
-                    //           width: size.width * .12,
-                    //         ),
-                    //         Filter(
-                    //           width: size.width * .23,
-                    //           height: size.width * .12,
-                    //           selected: true,
-                    //           typeAnimal: animal.dog,
-                    //         ),
-                    //         Filter(
-                    //           width: size.width * .23,
-                    //           height: size.width * .12,
-                    //           typeAnimal: animal.cat,
-                    //         ),
-                    //         Filter(
-                    //           width: size.width * .23,
-                    //           height: size.width * .12,
-                    //           typeAnimal: animal.bird,
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
 
                     // ----- CARDS DOS ANIMAIS -----
                     Expanded(
