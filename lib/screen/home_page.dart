@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../core/components/filter_pet.dart';
-import '../core/components/page_header.dart';
+import '../core/components/custom_appbar.dart';
 import '../core/components/animal_card.dart';
 import '../core/components/settings_filter.dart';
+import '../core/constants/color_pallete.dart';
 import '../core/utils/calculate.dart';
 import '../mocks/mock_filter_pet.dart';
 import '../mocks/mock_pet.dart';
@@ -20,22 +21,14 @@ class _HomeState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorPallete.primaryColor,
+        appBar: CustomAppBar(
+          heightAppBar: size.height,
+          width: size.width,
+          height: size.width,
+        ),
         body: Column(
           children: [
-            // ---------------HEADER----------------------
-            Container(
-              width: size.width,
-              height: size.height * 0.19,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
-              child: PageHeader(
-                width: size.width,
-                height: size.width,
-              ),
-            ),
-
             // -----------------BODY CONTAINER DA APLICAÇÃO--------------
             Expanded(
               child: Container(
@@ -72,16 +65,15 @@ class _HomeState extends State<HomePage> {
                                 width: size.width,
                                 height: size.height,
                               );
-                            } else {
-                              item = filterPetList[index - 1];
-                              return FilterPet(
-                                typeFilter: item.typeFilter,
-                                filterName: item.filterName,
-                                selected: item.selected,
-                                width: size.width * .23,
-                                height: size.width * .12,
-                              );
                             }
+                            item = filterPetList[index - 1];
+                            return FilterPet(
+                              typeFilter: item.typeFilter,
+                              filterName: item.filterName,
+                              selected: item.selected,
+                              width: size.width * .23,
+                              height: size.width * .12,
+                            );
                           },
                         ),
                       ),

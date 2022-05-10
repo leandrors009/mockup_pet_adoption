@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../core/components/perfil_photos.dart';
 import '../mocks/mock_perfil_photo.dart';
 
-var aboutText =
+const String aboutText =
     "She is shy at first, but will warm up when she's comfortable. She is not a ranch dog that guards animals and property as she would rather be with her people; but she is comfortable around animals. She plays well with other dogs.";
 
 class AboutPet extends StatelessWidget {
@@ -19,7 +19,8 @@ class AboutPet extends StatelessWidget {
               padding: EdgeInsets.only(
                   left: size.width * .05,
                   right: size.width * .05,
-                  top: size.height * .04),
+                  top: size.height * .04,
+                  bottom: size.height * .02),
               child: Column(
                 children: [
                   //Icon Buttons Back and HeartFill
@@ -111,16 +112,15 @@ class AboutPet extends StatelessWidget {
               ),
             ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(2),
-                        child: Column(
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: size.width * .05),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Column(
                           children: [
                             SizedBox(
                               height: size.width * .83,
@@ -136,29 +136,32 @@ class AboutPet extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        width: size.height * .07,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Image(
-                            width: MediaQuery.of(context).size.height * 0.30,
-                            image: const AssetImage('assets/pets/perfil.png'),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: size.height * .07,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Image(
+                          width: MediaQuery.of(context).size.height * 0.30,
+                          image: const AssetImage('assets/pets/perfil.png'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
 
             // TEXTO DE ABOUT
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 10, left: 20, right: 20, bottom: 10),
+              padding: EdgeInsets.only(
+                  top: size.height * .01,
+                  left: size.width * .05,
+                  right: size.width * .05,
+                  bottom: size.height * .04),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -169,16 +172,13 @@ class AboutPet extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                      top: 10,
+                    padding: EdgeInsets.only(
+                      top: size.height * .01,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text(
-                        aboutText,
-                        style: TextStyle(
-                            fontSize: size.width * .035, color: Colors.grey),
-                      ),
+                    child: Text(
+                      aboutText,
+                      style: TextStyle(
+                          fontSize: size.width * .035, color: Colors.grey),
                     ),
                   )
                 ],
@@ -186,42 +186,48 @@ class AboutPet extends StatelessWidget {
             ),
 
             // BOTÃO DE ADOTAR
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SizedBox(
-                  width: size.width * .6,
-                  height: size.width * .173,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image(
-                            width: size.width * .06,
-                            height: size.width * .06,
-                            image: const AssetImage(
-                              'assets/icons/paw.png',
-                            )),
-                        Text(
-                          'Adopt'.toUpperCase(),
-                          style: TextStyle(fontSize: size.width * .05),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      width: size.width * .6,
+                      height: size.width * .14,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image(
+                                width: size.width * .06,
+                                height: size.width * .06,
+                                image: const AssetImage(
+                                  'assets/icons/paw.png',
+                                )),
+                            Text(
+                              'Adopt'.toUpperCase(),
+                              style: TextStyle(fontSize: size.width * .05),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.red),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(50),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.red),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(size.width * .15),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                )
+                    )
+                  ],
+                ),
               ],
             )
           ],

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-class PageHeader extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
   final double width;
+  final double heightAppBar;
 
-  const PageHeader({
-    super.key,
-    this.height = 210,
-    this.width = 750,
-  });
+  CustomAppBar(
+      {super.key,
+      this.height = 210,
+      this.width = 750,
+      this.heightAppBar = 210});
+
+  @override
+  Size get preferredSize => Size.fromHeight(heightAppBar * .19);
 
   @override
   Widget build(BuildContext context) {
