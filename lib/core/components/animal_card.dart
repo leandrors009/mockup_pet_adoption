@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../screen/about_pet.dart';
+import '../constants/color_pallete.dart';
 
 class AnimalCard extends StatelessWidget {
   final double width;
@@ -13,6 +14,7 @@ class AnimalCard extends StatelessWidget {
   final String genderAndAge;
   final String distance;
   final bool isLiked;
+  final int indexPhoto;
 
   const AnimalCard({
     super.key,
@@ -25,6 +27,7 @@ class AnimalCard extends StatelessWidget {
     this.genderAndAge = 'Female, 8 months old',
     this.distance = '2.5 kms away',
     this.isLiked = true,
+    required this.indexPhoto,
   });
 
   @override
@@ -61,26 +64,34 @@ class AnimalCard extends StatelessWidget {
                   // IMAGE ANIMAL
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return AboutPet();
-                      }));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AboutPet(
+                              indexPhoto: indexPhoto,
+                            );
+                          },
+                        ),
+                      );
                     },
-                    child: Container(
-                      width: height * .85,
-                      height: height * .85,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(height * .13),
-                      ),
-                      child: AspectRatio(
-                        aspectRatio: 1,
-                        child: ClipRRect(
+                    child: Hero(
+                      tag: 'pet$indexPhoto',
+                      child: Container(
+                        width: height * .85,
+                        height: height * .85,
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(height * .13),
-                          child: Image(
-                            fit: BoxFit.cover,
-                            width: height * .85,
-                            height: height * .85,
-                            image: AssetImage(imagePath),
+                        ),
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(height * .13),
+                            child: Image(
+                              fit: BoxFit.cover,
+                              width: height * .85,
+                              height: height * .85,
+                              image: AssetImage(imagePath),
+                            ),
                           ),
                         ),
                       ),
@@ -111,7 +122,8 @@ class AnimalCard extends StatelessWidget {
                           ),
                           Text(
                             genderAndAge, //'Female, 8 months old',
-                            style: const TextStyle(color: Colors.grey),
+                            style: const TextStyle(
+                                color: ColorPallete.opacityGreyColor),
                           ),
                           SizedBox(height: height * .1),
                           // Distância do animal
@@ -123,7 +135,8 @@ class AnimalCard extends StatelessWidget {
                               SizedBox(width: height * .05),
                               Text(
                                 distance,
-                                style: const TextStyle(color: Colors.grey),
+                                style: const TextStyle(
+                                    color: ColorPallete.opacityGreyColor),
                               ),
                             ],
                           )

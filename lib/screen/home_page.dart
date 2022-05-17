@@ -35,8 +35,8 @@ class _HomeState extends State<HomePage> {
                 width: size.width,
                 height: size.height - 210,
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(
-                      255, 242, 242, 242), //Color.fromARGB(255, 242, 242, 242),
+                  color: ColorPallete
+                      .lightGreyColor, //Color.fromARGB(255, 242, 242, 242),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(size.height * .04),
                     topRight: Radius.circular(size.height * .04),
@@ -98,6 +98,7 @@ class _HomeState extends State<HomePage> {
                               padding: EdgeInsets.only(
                                 bottom: size.width * .05,
                               ),
+                              indexPhoto: index,
                               imagePath: item.imagePath,
                               name: item.name,
                               breed: item.breed,

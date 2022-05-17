@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../core/components/perfil_photos.dart';
+import '../core/constants/color_pallete.dart';
 import '../mocks/mock_perfil_photo.dart';
 
 const String aboutText =
     "She is shy at first, but will warm up when she's comfortable. She is not a ranch dog that guards animals and property as she would rather be with her people; but she is comfortable around animals. She plays well with other dogs.";
 
 class AboutPet extends StatelessWidget {
+  final int indexPhoto;
+
+  const AboutPet({
+    required this.indexPhoto,
+  });
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -104,7 +111,8 @@ class AboutPet extends StatelessWidget {
                       Text(
                         ' 2.5 kms away',
                         style: TextStyle(
-                            fontSize: size.height * .02, color: Colors.grey),
+                            fontSize: size.height * .02,
+                            color: ColorPallete.opacityGreyColor),
                       ),
                     ],
                   ),
@@ -144,9 +152,12 @@ class AboutPet extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Image(
-                          width: MediaQuery.of(context).size.height * 0.30,
-                          image: const AssetImage('assets/pets/perfil.png'),
+                        Hero(
+                          tag: 'pet$indexPhoto',
+                          child: Image(
+                            width: MediaQuery.of(context).size.height * 0.30,
+                            image: const AssetImage('assets/pets/perfil.png'),
+                          ),
                         ),
                       ],
                     ),
@@ -161,7 +172,7 @@ class AboutPet extends StatelessWidget {
                   top: size.height * .01,
                   left: size.width * .05,
                   right: size.width * .05,
-                  bottom: size.height * .04),
+                  bottom: size.height * .02),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -178,7 +189,8 @@ class AboutPet extends StatelessWidget {
                     child: Text(
                       aboutText,
                       style: TextStyle(
-                          fontSize: size.width * .035, color: Colors.grey),
+                          fontSize: size.width * .035,
+                          color: ColorPallete.opacityGreyColor),
                     ),
                   )
                 ],
