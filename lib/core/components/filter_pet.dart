@@ -49,9 +49,7 @@ class FilterPet extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(height * .20),
       child: Container(
-        decoration: BoxDecoration(
-            color: selected ? Colors.redAccent : Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(height * .4))),
+        decoration: BoxDecoration(color: selected ? Theme.of(context).primaryColor : Colors.white, borderRadius: BorderRadius.all(Radius.circular(height * .4))),
         width: width,
         height: height,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [

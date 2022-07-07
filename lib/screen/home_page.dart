@@ -4,7 +4,7 @@ import '../core/components/filter_pet.dart';
 import '../core/components/custom_appbar.dart';
 import '../core/components/animal_card.dart';
 import '../core/components/settings_filter.dart';
-import '../core/constants/color_pallete.dart';
+import '../core/theme/colors/color_pallete.dart';
 import '../core/utils/calculate.dart';
 import '../mocks/mock_filter_pet.dart';
 import '../mocks/mock_pet.dart';
@@ -21,7 +21,7 @@ class _HomeState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorPallete.primaryColor,
+        backgroundColor: ColorPalette.white,
         appBar: CustomAppBar(
           heightAppBar: size.height,
           width: size.width,
@@ -35,8 +35,8 @@ class _HomeState extends State<HomePage> {
                 width: size.width,
                 height: size.height - 210,
                 decoration: BoxDecoration(
-                  color: ColorPallete
-                      .lightGreyColor, //Color.fromARGB(255, 242, 242, 242),
+                  color: ColorPalette
+                      .lightGrey, //Color.fromARGB(255, 242, 242, 242),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(size.height * .04),
                     topRight: Radius.circular(size.height * .04),

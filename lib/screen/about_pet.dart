@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../core/components/perfil_photos.dart';
-import '../core/constants/color_pallete.dart';
+import '../core/constants/assets_const.dart';
+import '../core/theme/colors/color_pallete.dart';
 import '../mocks/mock_perfil_photo.dart';
-
-const String aboutText =
-    "She is shy at first, but will warm up when she's comfortable. She is not a ranch dog that guards animals and property as she would rather be with her people; but she is comfortable around animals. She plays well with other dogs.";
 
 class AboutPet extends StatelessWidget {
   final int indexPhoto;
@@ -23,11 +20,7 @@ class AboutPet extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                  left: size.width * .05,
-                  right: size.width * .05,
-                  top: size.height * .04,
-                  bottom: size.height * .02),
+              padding: EdgeInsets.only(left: size.width * .05, right: size.width * .05, top: size.height * .04, bottom: size.height * .02),
               child: Column(
                 children: [
                   //Icon Buttons Back and HeartFill
@@ -41,22 +34,18 @@ class AboutPet extends StatelessWidget {
                         },
                         child: Image(
                           width: size.width * .05,
-                          image: const AssetImage('assets/icons/arrowleft.png'),
+                          image: const AssetImage('assets/icons/arrowleft.png'), //TODO: Passar os textos, ícones, imagens por variáveis.
                         ),
                       ),
                       // ÍCONE DE FAVORITO
                       Container(
                         width: MediaQuery.of(context).size.height * .06,
                         height: MediaQuery.of(context).size.height * .06,
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 255, 230, 227),
-                            borderRadius: BorderRadius.circular(
-                                MediaQuery.of(context).size.width * .04)),
+                        decoration: BoxDecoration(color: const Color.fromARGB(255, 255, 230, 227), borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * .04)),
                         child: Center(
                           child: Image(
                             width: MediaQuery.of(context).size.height * .03,
-                            image:
-                                const AssetImage('assets/icons/heartfill.png'),
+                            image: const AssetImage('assets/icons/heartfill.png'), //TODO: Passar os textos, ícones, imagens por variáveis.
                           ),
                         ),
                       ),
@@ -70,14 +59,14 @@ class AboutPet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Sparky',
-                        style: TextStyle(
-                            fontSize: size.height * .04,
-                            fontWeight: FontWeight.bold),
+                        'Sparky', //TODO: Passar os textos, ícones, imagens por variáveis.
+                        style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                              fontSize: size.height * .04,
+                            ),
                       ),
                       Image(
                         width: MediaQuery.of(context).size.height * .04,
-                        image: const AssetImage('assets/icons/sex.png'),
+                        image: const AssetImage('assets/icons/sex.png'), //TODO: Passar os textos, ícones, imagens por variáveis.
                       ),
                     ],
                   ),
@@ -89,12 +78,16 @@ class AboutPet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Golden Retriever',
-                        style: TextStyle(fontSize: size.height * .02),
+                        'Golden Retriever', //TODO: Passar os textos, ícones, imagens por variáveis.
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                              fontSize: size.height * .02,
+                            ),
                       ),
                       Text(
-                        '8 months old',
-                        style: TextStyle(fontSize: size.height * .02),
+                        '8 months old', //TODO: Passar os textos, ícones, imagens por variáveis.
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                              fontSize: size.height * .02,
+                            ),
                       ),
                     ],
                   ),
@@ -106,13 +99,14 @@ class AboutPet extends StatelessWidget {
                     children: [
                       Image(
                         width: size.height * .018,
-                        image: const AssetImage('assets/icons/placefill.png'),
+                        image: const AssetImage('assets/icons/placefill.png'), //TODO: Passar os textos, ícones, imagens por variáveis.
                       ),
                       Text(
-                        ' 2.5 kms away',
-                        style: TextStyle(
-                            fontSize: size.height * .02,
-                            color: ColorPallete.opacityGreyColor),
+                        ' 2.5 kms away', //TODO: Passar os textos, ícones, imagens por variáveis.
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                              fontSize: size.height * .02,
+                              color: ColorPalette.grey,
+                            ),
                       ),
                     ],
                   ),
@@ -137,8 +131,7 @@ class AboutPet extends StatelessWidget {
                                 itemCount: perfilPhotoList.length,
                                 itemBuilder: ((context, index) {
                                   var item = perfilPhotoList[index];
-                                  return PerfilPhotos(
-                                      pathImage: item.pathImage);
+                                  return PerfilPhotos(pathImage: item.pathImage);
                                 }),
                               ),
                             ),
@@ -156,7 +149,7 @@ class AboutPet extends StatelessWidget {
                           tag: 'pet$indexPhoto',
                           child: Image(
                             width: MediaQuery.of(context).size.height * 0.30,
-                            image: const AssetImage('assets/pets/perfil.png'),
+                            image: const AssetImage('assets/pets/perfil.png'), //TODO: Passar os textos, ícones, imagens por variáveis.
                           ),
                         ),
                       ],
@@ -168,29 +161,26 @@ class AboutPet extends StatelessWidget {
 
             // TEXTO DE ABOUT
             Padding(
-              padding: EdgeInsets.only(
-                  top: size.height * .01,
-                  left: size.width * .05,
-                  right: size.width * .05,
-                  bottom: size.height * .02),
+              padding: EdgeInsets.only(top: size.height * .01, left: size.width * .05, right: size.width * .05, bottom: size.height * .02),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'About',
-                    style: TextStyle(
-                        fontSize: size.height * .03,
-                        fontWeight: FontWeight.bold),
+                    'About', //TODO: Passar os textos, ícones, imagens por variáveis.
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                          fontSize: size.height * .03,
+                        ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
                       top: size.height * .01,
                     ),
                     child: Text(
-                      aboutText,
-                      style: TextStyle(
-                          fontSize: size.width * .035,
-                          color: ColorPallete.opacityGreyColor),
+                      AssetsConst.aboutText,
+                      style: Theme.of(context).textTheme.headline4?.copyWith(
+                            fontSize: size.width * .035,
+                            color: ColorPalette.grey,
+                          ),
                     ),
                   )
                 ],
@@ -216,19 +206,17 @@ class AboutPet extends StatelessWidget {
                                 width: size.width * .06,
                                 height: size.width * .06,
                                 image: const AssetImage(
-                                  'assets/icons/paw.png',
+                                  'assets/icons/paw.png', //TODO: Passar os textos, ícones, imagens por variáveis.
                                 )),
                             Text(
                               'Adopt'.toUpperCase(),
-                              style: TextStyle(fontSize: size.width * .05),
+                              style: Theme.of(context).textTheme.button?.copyWith(fontSize: size.width * .05),
                             ),
                           ],
                         ),
                         style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.red),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          //backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(size.width * .15),

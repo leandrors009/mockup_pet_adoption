@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../screen/about_pet.dart';
-import '../constants/color_pallete.dart';
+import '../theme/colors/color_pallete.dart';
 
 class AnimalCard extends StatelessWidget {
   final double width;
@@ -13,10 +12,10 @@ class AnimalCard extends StatelessWidget {
   final String breed;
   final String genderAndAge;
   final String distance;
-  final bool isLiked;
+  bool isLiked;
   final int indexPhoto;
 
-  const AnimalCard({
+  AnimalCard({
     super.key,
     this.width = 643,
     this.height = 236,
@@ -109,9 +108,7 @@ class AnimalCard extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: height * .14),
+                            style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: height * .14),
                           ),
                           SizedBox(height: height * .06),
                           Text(
@@ -119,24 +116,21 @@ class AnimalCard extends StatelessWidget {
                             overflow: TextOverflow.fade,
                             softWrap: true,
                             maxLines: 2,
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
                             genderAndAge, //'Female, 8 months old',
-                            style: const TextStyle(
-                                color: ColorPallete.opacityGreyColor),
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                           SizedBox(height: height * .1),
                           // Distância do animal
                           Row(
                             children: [
-                              Image.asset(
-                                  width: height * .13,
-                                  'assets/icons/placefill.png'),
+                              Image.asset(width: height * .13, 'assets/icons/placefill.png'),
                               SizedBox(width: height * .05),
                               Text(
                                 distance,
-                                style: const TextStyle(
-                                    color: ColorPallete.opacityGreyColor),
+                                style: Theme.of(context).textTheme.bodyText1,
                               ),
                             ],
                           )
@@ -152,9 +146,20 @@ class AnimalCard extends StatelessWidget {
           Positioned(
             right: height * .14,
             top: height * .14,
-            child: Image.asset(
-              heartSelected,
-              width: height * .2,
+            child: GestureDetector(
+              onTap: () {
+                if (isLiked) {
+                  isLiked = false;
+                  print('isLiked = false');
+                } else if (!isLiked) {
+                  isLiked = true;
+                  print('isLiked = true');
+                }
+              },
+              child: Image.asset(
+                heartSelected,
+                width: height * .2,
+              ),
             ),
           ),
         ],

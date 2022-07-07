@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'core/theme/themes.dart';
 import 'screen/home_page.dart' as homepage;
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pet Adoption',
-      theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
+      theme: defaultTheme,
       home: homepage.HomePage(),
     );
   }

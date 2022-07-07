@@ -48,3 +48,25 @@ var animalsList = [
     isLiked: false,
   ),
 ];
+
+// const json = '''[
+//   {
+//     "imagePath": "assets/pets/pet1.png",
+//     "name": "Sparky",
+//     "breed": "Golden Retriever",
+//     "gender": "Female",
+//     "age": "2019-08-20 00:00:00.000",
+//     "distance": 2.5,
+//     "isLiked": true,
+//   },
+//   {
+//     "imagePath": "assets/pets/pet2.png",
+//     name: 'Charlie',
+//     breed: 'Boston Terrier',
+//     gender: 'Male',
+//     age: DateTime(2021, 12, 20),
+//     distance: 0.6,
+//     isLiked: false,
+//   },
+
+// ]''';
